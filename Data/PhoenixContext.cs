@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Phoenix.Models;
 
 namespace Phoenix.Data
 {
@@ -12,6 +13,8 @@ namespace Phoenix.Data
         public DbSet<Phoenix.Domains.Status> Status { get; set; }
 
         public DbSet<Phoenix.Models.Country> Country { get; set; }
+
+        public DbSet<Phoenix.Models.State> State { get; set; }
 
     }
 
