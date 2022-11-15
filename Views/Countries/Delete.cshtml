@@ -1,0 +1,60 @@
+﻿@model Phoenix.Models.Country
+
+@{
+    ViewData["Title"] = "Excluir";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Países - Excluir país</h4>
+
+<h4>Deseja realmente excluir o país?</h4>
+<div>
+    <h3>País - @Html.DisplayFor(model => model.Name)</h3>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Iso2)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Iso2)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Iso3)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Iso3)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Excluir" class="btn btn-danger" />
+        <a class="btn btn-secondary" href="@Url.Action("Index", "Countries")">
+            Voltar
+        </a>
+    </form>
+</div>
