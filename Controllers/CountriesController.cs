@@ -16,9 +16,17 @@ namespace Phoenix.Controllers
         }
 
         // GET: Countries
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
             var phoenixContext = _context.Country.Include(c => c.Status).OrderBy(c => c.Name);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                phoenixContext = _context.Country
+                                         .Include(c => c.Status)
+                                         .Where(c => c.Name.Contains(searchString))
+                                         .OrderBy(c => c.Name);
+            }
             return View(await phoenixContext.ToListAsync());
         }
 
