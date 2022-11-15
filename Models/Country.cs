@@ -14,6 +14,7 @@ namespace Phoenix.Models
         [Key]
         [Column("cnt_id")]
         [Display(Name = "Código")]
+        [DisplayFormat(DataFormatString = "{0:0000}")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Phoenix.Data;
@@ -22,7 +18,7 @@ namespace Phoenix.Controllers
         // GET: Countries
         public async Task<IActionResult> Index()
         {
-            var phoenixContext = _context.Country.Include(c => c.Status);
+            var phoenixContext = _context.Country.Include(c => c.Status).OrderBy(c => c.Name);
             return View(await phoenixContext.ToListAsync());
         }
 

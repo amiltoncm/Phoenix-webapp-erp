@@ -37,8 +37,12 @@
             </div>
             <br />
             <div class="form-group">
-                <input type="submit" value="Salvar" class="btn btn-success" />
+                <a class="btn btn-success" onclick="this.closest('form').submit();return false;">
+                    <i class="fa fa-check"></i>
+                    Salvar
+                </a>
                 <a class="btn btn-secondary" href="@Url.Action("Index", "Countries")">
+                    <i class="fa fa-undo"></i>
                     Cancelar
                 </a>
             </div>
