@@ -13,6 +13,8 @@
 </head>
 <body>
     <header>
+
+
         <nav class="navbar
                     navbar-expand-sm
                     navbar-toggleable-sm
@@ -23,7 +25,10 @@
                     mb-3
                     top-fixed">
             <div class="container-fluid">
-                <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand">
+                <button class="btn btn-secondary" id="sidebarToggle">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand" style="margin-left: 10px;">
                     <img src="~/images/brand.png" alt="AMX Sistemas">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -43,6 +48,8 @@
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
