@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Phoenix.Data;
 using Phoenix.Models;
-using System.Diagnostics.Metrics;
 
 namespace Phoenix.Controllers
 {

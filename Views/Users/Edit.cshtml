@@ -1,32 +1,32 @@
-﻿@model Phoenix.Models.City
+﻿@model Phoenix.Models.User
 
 @{
     ViewData["Title"] = "Edit";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>Cidades - Editar</h4>
+<h4>Usuários - Editar</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @Html.Hidden("Created")
             <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Code" class="control-label"></label>
-                <input asp-for="Code" class="form-control" autofocus/>
-                <span asp-validation-for="Code" class="text-danger"></span>
-            </div>
+            <input type="hidden" asp-for="Created" />
+            <input type="hidden" asp-for="Password" />
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                <input asp-for="Name" class="form-control" readonly/>
             </div>
             <div class="form-group">
-                <label asp-for="StateId" class="control-label"></label>
-                <select asp-for="StateId" class="form-control" asp-items="ViewBag.StateId"></select>
-                <span asp-validation-for="StateId" class="text-danger"></span>
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" autofocus/>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProfileId" class="control-label"></label>
+                <select asp-for="ProfileId" class="form-control" asp-items="ViewBag.ProfileId"></select>
+                <span asp-validation-for="ProfileId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="StatusId" class="control-label"></label>
@@ -39,7 +39,7 @@
                     <i class="fa fa-check"></i>
                     Salvar
                 </a>
-                <a class="btn btn-secondary" href="@Url.Action("Index", "Cities")">
+                <a class="btn btn-secondary" href="@Url.Action("Index", "Users")">
                     <i class="fa fa-undo"></i>
                     Cancelar
                 </a>

@@ -18,6 +18,8 @@ namespace Phoenix.Data
 
         public DbSet<Phoenix.Models.City> City { get; set; }
 
+        public DbSet<Phoenix.Models.User> User { get; set; }
+
     }
 
 }
