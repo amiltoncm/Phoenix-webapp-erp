@@ -5,7 +5,20 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>Usuários - Editar</h4>
+<div style="display: flex; justify-content: space-between;">
+    <div>
+        <h4>Usuários - Editar</h4>
+    </div>
+    <div style="display: flex; justify-content: flex-end">
+        <div style="margin-left: 30px;">
+            <a class="btn btn-outline-dark" asp-action="PasswordChange" asp-route-id=@Model.Id>
+                <i class="fa fa-key" style="padding-right: 5px;"></i>
+                Senha
+            </a>
+        </div>
+    </div>
+</div>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" autofocus/>
+                <input asp-for="Email" class="form-control" type="email" autofocus/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">

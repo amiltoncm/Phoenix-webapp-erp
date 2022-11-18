@@ -64,7 +64,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr style="@(item.Status.Id == 0 ? "color:red;" : "color:green;")">
+        <tr style="@(item.Status.Id == 0 ? "color:red;" : "color:black;")">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>

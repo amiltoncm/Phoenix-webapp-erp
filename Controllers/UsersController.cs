@@ -103,12 +103,29 @@ namespace Phoenix.Controllers
             return View(user);
         }
 
+        public async Task<IActionResult> PasswordChange(int? id)
+        {
+            if (id == null || _context.User == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.User.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+            ViewData["ProfileId"] = new SelectList(_context.Set<Profile>().OrderBy(p => p.Name), "Id", "Name", user.ProfileId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", user.StatusId);
+            return View(user);
+        }
+
         // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,ConfirmPassword,ProfileId,StatusId,Created,Updated,Deleted")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,ProfileId,StatusId,Created,Updated,Deleted")] User user)
         {
             if (id != user.Id)
             {
@@ -147,6 +164,41 @@ namespace Phoenix.Controllers
             ViewData["ProfileId"] = new SelectList(_context.Set<Profile>().OrderBy(p => p.Name), "Id", "Name", user.ProfileId);
             ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", user.StatusId);
             return View(user);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdatePassword(int id, string confirmPassword, [Bind("Id,Name,Email,Password,ProfileId,StatusId,Created,Updated,Deleted")] User user)
+        {
+            if (id != user.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    user.Password = confirmPassword;
+                    user.Created = DateTime.SpecifyKind(user.Created, DateTimeKind.Utc);
+                    user.Updated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+                    _context.Update(user);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!UserExists(user.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Users/Delete/5

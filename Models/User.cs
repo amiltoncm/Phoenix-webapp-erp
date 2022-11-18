@@ -67,7 +67,7 @@ namespace Phoenix.Models
         [Display(Name = "Status")]
         public virtual Status? Status { get; set; }
 
-        [Display(Name = "ID Perfil")]
+        [Display(Name = "Perfil")]
         public virtual Profile? Profile { get; set; }
 
     }
