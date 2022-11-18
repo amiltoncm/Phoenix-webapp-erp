@@ -7,9 +7,29 @@
 
 <h4>Usuários - Novo</h4>
 <hr />
+
+<div class="modal fade" id="passwordMessage" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #FFC300;">
+        <i class="fa fa-warning fa-lg"></i>
+        <h5 class="modal-title" style="margin-left: 7px">Aviso</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>As senhas digitadas não conferem!</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form id="frmCreate" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Name" class="control-label"></label>
@@ -23,8 +43,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" type="password"/>
+                <input asp-for="Password" id="password" class="form-control" type="password"/>
                 <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Confirmação da senha</label>
+                <input class="form-control" id="confirmPassword" type="password"/>
             </div>
             <div class="form-group">
                 <label asp-for="ProfileId" class="control-label"></label>
@@ -36,7 +60,7 @@
             </div>
             <br />
             <div class="form-group">
-                <a class="btn btn-success" onclick="this.closest('form').submit();return false;">
+                <a class="btn btn-success" onclick="passwordValidation()">
                     <i class="fa fa-check"></i>
                     Salvar
                 </a>
@@ -52,3 +76,18 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+<script>
+    function passwordValidation() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        if (password != confirmPassword) {
+            $("#passwordMessage").modal("show");
+            document.getElementById("confirmPassword").focus();
+            return false;
+        } else {
+            document.getElementById("frmCreate").submit();
+            return false;
+        }
+    }
+</script>
