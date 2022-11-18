@@ -18,7 +18,7 @@ namespace Phoenix.Controllers
         // GET: States
         public async Task<IActionResult> Index(string searchString)
         {
-            var phoenixContext = _context.State.Include(s => s.Country).Include(s => s.Status).OrderBy(c => c.Name);
+            var phoenixContext = _context.State.Include(s => s.Country).Include(s => s.Status).OrderBy(s => s.Name);
 
             if (!String.IsNullOrEmpty(searchString))
             {
@@ -55,8 +55,8 @@ namespace Phoenix.Controllers
         // GET: States/Create
         public IActionResult Create()
         {
-            ViewData["CountryId"] = new SelectList(_context.Country, "Id", "Name");
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name");
+            ViewData["CountryId"] = new SelectList(_context.Country.OrderBy(c => c.Name), "Id", "Name");
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name");
             return View();
         }
 
@@ -76,8 +76,8 @@ namespace Phoenix.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CountryId"] = new SelectList(_context.Country, "Id", "Name", state.CountryId);
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", state.StatusId);
+            ViewData["CountryId"] = new SelectList(_context.Country.OrderBy(c => c.Name), "Id", "Name", state.CountryId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", state.StatusId);
             return View(state);
         }
 
@@ -95,8 +95,8 @@ namespace Phoenix.Controllers
                 return NotFound();
             }
 
-            ViewData["CountryId"] = new SelectList(_context.Country, "Id", "Name", state.CountryId);
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", state.StatusId);
+            ViewData["CountryId"] = new SelectList(_context.Country.OrderBy(c => c.Name), "Id", "Name", state.CountryId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", state.StatusId);
             return View(state);
         }
 
@@ -135,8 +135,8 @@ namespace Phoenix.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CountryId"] = new SelectList(_context.Country, "Id", "Name", state.CountryId);
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", state.StatusId);
+            ViewData["CountryId"] = new SelectList(_context.Country.OrderBy(c => c.Name), "Id", "Name", state.CountryId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", state.StatusId);
             return View(state);
         }
 

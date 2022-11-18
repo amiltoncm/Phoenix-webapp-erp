@@ -33,8 +33,7 @@ namespace Phoenix.Models
         [Required]
         [Column("usr_password")]
         [Display(Name = "Senha")]
-	    [DataType(DataType.Password)]
-        [MinLength(10, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
+        [MinLength(6, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
         [MaxLength(128, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Password { get; set; }
 
@@ -63,13 +62,11 @@ namespace Phoenix.Models
         [AllowNull]
         [Column("usr_deleted")]
         [Display(Name = "Inativado em")]
-        public DateTime Deleted { get; set; }
+        public DateTime ? Deleted { get; set; }
 
-        [Required]
         [Display(Name = "Status")]
         public virtual Status? Status { get; set; }
 
-        [Required]
         [Display(Name = "ID Perfil")]
         public virtual Profile? Profile { get; set; }
 

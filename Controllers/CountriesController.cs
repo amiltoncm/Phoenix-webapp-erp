@@ -52,7 +52,7 @@ namespace Phoenix.Controllers
         // GET: Countries/Create
         public IActionResult Create()
         {
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name");
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name");
             return View();
         }
 
@@ -73,7 +73,7 @@ namespace Phoenix.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", country.StatusId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", country.StatusId);
             return View(country);
         }
 
@@ -90,7 +90,7 @@ namespace Phoenix.Controllers
             {
                 return NotFound();
             }
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", country.StatusId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", country.StatusId);
             return View(country);
         }
 
@@ -130,7 +130,7 @@ namespace Phoenix.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", country.StatusId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", country.StatusId);
             return View(country);
         }
 

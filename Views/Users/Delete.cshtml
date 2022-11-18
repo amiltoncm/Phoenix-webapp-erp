@@ -5,9 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>Usuários - Excluir estado</h4>
+<h4>Usuários - Inativar usuário</h4>
 
-<h4 style="color: red">Deseja realmente excluir: @Html.DisplayFor(model => model.Name)?</h4>
+<h4 style="color: red">Deseja realmente inativar: @Html.DisplayFor(model => model.Name)?</h4>
 <div>
     <hr />
     <dl class="row">
@@ -58,8 +58,8 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
         <a class="btn btn-danger" onclick="this.closest('form').submit();return false;">
-            <i class="fa fa-trash"></i>
-            Excluir
+            <i class="fa fa-ban"></i>
+            Inativar
         </a>
         <a class="btn btn-secondary" href="@Url.Action("Index", "Users")">
             <i class="fa fa-undo"></i>

@@ -54,8 +54,8 @@ namespace Phoenix.Controllers
         // GET: Cities/Create
         public IActionResult Create()
         {
-            ViewData["StateId"] = new SelectList(_context.State, "Id", "Abbreviation");
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name");
+            ViewData["StateId"] = new SelectList(_context.State.OrderBy(s => s.Name), "Id", "Name");
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name");
             return View();
         }
 
@@ -68,14 +68,14 @@ namespace Phoenix.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(city);
                 city.Created = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                 city.Updated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+                _context.Add(city);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StateId"] = new SelectList(_context.State, "Id", "Abbreviation", city.StateId);
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", city.StatusId);
+            ViewData["StateId"] = new SelectList(_context.State.OrderBy(s => s.Name), "Id", "Name", city.StateId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", city.StatusId);
             return View(city);
         }
 
@@ -92,8 +92,8 @@ namespace Phoenix.Controllers
             {
                 return NotFound();
             }
-            ViewData["StateId"] = new SelectList(_context.State, "Id", "Abbreviation", city.StateId);
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", city.StatusId);
+            ViewData["StateId"] = new SelectList(_context.State.OrderBy(s => s.Name), "Id", "Name", city.StateId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", city.StatusId);
             return View(city);
         }
 
@@ -131,8 +131,8 @@ namespace Phoenix.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["StateId"] = new SelectList(_context.State, "Id", "Abbreviation", city.StateId);
-            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", city.StatusId);
+            ViewData["StateId"] = new SelectList(_context.State.OrderBy(s => s.Name), "Id", "Name", city.StateId);
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", city.StatusId);
             return View(city);
         }
 

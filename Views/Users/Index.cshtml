@@ -54,9 +54,6 @@
                 @Html.DisplayNameFor(model => model.Updated)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Deleted)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Status)
             </th>
             <th>
@@ -81,9 +78,6 @@
                 @Html.DisplayFor(modelItem => item.Updated)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Deleted)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Status.Name)
             </td>
             <td>
@@ -97,7 +91,7 @@
                     <i class="fa fa-edit icons-crud" data-toggle="tooltip" data-placement="top" title="Editar"></i>
                 </a>
                 <a asp-action="Delete" asp-route-id="@item.Id" style="color: red; padding-left: 10px">
-                    <i class="fa fa-trash" data-toggle="tooltip" data-placement="top" title="Excluir"></i>
+                    <i class="fa fa-ban" data-toggle="tooltip" data-placement="top" title="Bloquear"></i>
                 </a>
             </td>
         </tr>
