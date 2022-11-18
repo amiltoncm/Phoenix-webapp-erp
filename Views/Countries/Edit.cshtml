@@ -34,11 +34,11 @@
             </div>
             <br />
             <div class="form-group">
-                <a class="btn btn-success" onclick="this.closest('form').submit();return false;">
+                <a class="btn btn-success" onclick="this.closest('form').submit();return false;" tabindex="0">
                     <i class="fa fa-check"></i>
                     Salvar
                 </a>
-                <a class="btn btn-secondary" href="@Url.Action("Index", "Countries")">
+                <a class="btn btn-secondary" href="@Url.Action("Index", "Countries")" tabindex="1">
                     <i class="fa fa-undo"></i>
                     Cancelar
                 </a>

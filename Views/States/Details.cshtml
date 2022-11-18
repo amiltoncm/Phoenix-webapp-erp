@@ -54,11 +54,11 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.Id">
+    <a asp-action="Edit" class="btn btn-primary" asp-route-id="@Model?.Id" tabindex="0">
         <i class="fa fa-edit"></i>
         Editar
     </a>
-    <a class="btn btn-secondary" href="@Url.Action("Index", "States")">
+    <a class="btn btn-secondary" href="@Url.Action("Index", "States")" tabindex="1">
         <i class="fa fa-undo"></i>
         Voltar
     </a>
