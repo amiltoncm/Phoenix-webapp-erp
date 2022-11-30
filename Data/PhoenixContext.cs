@@ -20,6 +20,10 @@ namespace Phoenix.Data
 
         public DbSet<Phoenix.Models.User> User { get; set; }
 
+        public DbSet<Phoenix.Models.Person> Person { get; set; }
+
+        public DbSet<Phoenix.Models.Bank> Bank { get; set; }
+
     }
 
 }

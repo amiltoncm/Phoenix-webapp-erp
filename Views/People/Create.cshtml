@@ -1,0 +1,142 @@
+﻿@model Phoenix.Models.Person
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Pessoas - Nova</h4>
+<hr />
+
+<div class="row">
+    <div class="container" style="display: flow">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="col-md-12" style="display: flex;">
+                <div class="form-group col-md-6">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" autofocus/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-6" style="margin-left:10px;">
+                    <label asp-for="Alias" class="control-label"></label>
+                    <input asp-for="Alias" class="form-control" />
+                    <span asp-validation-for="Alias" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="display: flex;">
+                <div class="form-group col-md-3">
+                    <label asp-for="PersonTypeId" class="control-label"></label>
+                    <select asp-for="PersonTypeId" class ="form-control" asp-items="ViewBag.PersonTypeId"></select>
+                </div>
+                <div class="form-group col-md-2" style="margin-left:10px;">
+                    <label asp-for="Document" class="control-label"></label>
+                    <input asp-for="Document" class="form-control" />
+                    <span asp-validation-for="Document" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3" style="margin-left:10px;">
+                    <label asp-for="Registration" class="control-label"></label>
+                    <input asp-for="Registration" class="form-control" />
+                    <span asp-validation-for="Registration" class="text-danger"></span>
+                </div> 
+                <div class="form-group col-md-2" style="margin-left:10px;">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-2" style="margin-left:10px;">
+                    <label asp-for="Zip" class="control-label"></label>
+                    <input asp-for="Zip" class="form-control" />
+                    <span asp-validation-for="Zip" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="display: flex;">
+                <div class="form-group col-md-3">
+                    <label asp-for="PublicPlaceId" class="control-label"></label>
+                    <select asp-for="PublicPlaceId" class ="form-control" asp-items="ViewBag.PublicPlaceId"></select>
+                </div>
+                <div class="form-group col-md-4" style="margin-left:10px;">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-1" style="margin-left:10px;">
+                    <label asp-for="Number" class="control-label"></label>
+                    <input asp-for="Number" class="form-control" />
+                    <span asp-validation-for="Number" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4" style="margin-left:10px;">
+                    <label asp-for="Complement" class="control-label"></label>
+                    <input asp-for="Complement" class="form-control" />
+                    <span asp-validation-for="Complement" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="display: flex;">
+                <div class="form-group col-md-4" >
+                    <label asp-for="District" class="control-label"></label>
+                    <input asp-for="District" class="form-control" />
+                    <span asp-validation-for="District" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4" style="margin-left:10px;">
+                    <label asp-for="CityId" class="control-label"></label>
+                    <select asp-for="CityId" class ="form-control" asp-items="ViewBag.CityId"></select>
+                </div>
+                <div class="form-group col-md-4" style="margin-left:10px;">
+                    <label asp-for="Reference" class="control-label"></label>
+                    <input asp-for="Reference" class="form-control" />
+                    <span asp-validation-for="Reference" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="display: flex;">
+                <div class="form-group col-md-8">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4" style="margin-left:10px;">
+                    <label asp-for="StatusID" class="control-label"></label>
+                    <select asp-for="StatusID" class ="form-control" asp-items="ViewBag.StatusID"></select>
+                </div>
+            </div>
+
+            <div class="col-md-12" style="display: flex; margin-top:10px;">
+                <div class="form-group col-md-2">
+                    <input type="checkbox" id="Client" name="Client" value="Model.Client" data="true"/>
+                    <label asp-for="Client" class="control-label"></label>
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="checkbox" id="Provider" name="Provider" />
+                    <label asp-for="Provider" class="control-label"></label>
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="checkbox" id="Shipping" name="Shipping" />
+                    <label asp-for="Shipping" class="control-label"></label>
+                </div>
+                <div class="form-group col-md-2">
+                    <input type="checkbox" id="Associate" name="Associate" />
+                    <label asp-for="Associate" class="control-label"></label>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <a class="btn btn-success" onclick="this.closest('form').submit();return false;" tabindex="0">
+                    <i class="fa fa-check"></i>
+                    Salvar
+                </a>
+                <a class="btn btn-secondary" href="@Url.Action("Index", "People")"  tabindex="1">
+                    <i class="fa fa-undo"></i>
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

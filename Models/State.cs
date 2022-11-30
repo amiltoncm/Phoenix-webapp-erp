@@ -36,7 +36,7 @@ namespace Phoenix.Models
 
         [Required]
         [Column("cnt_id")]
-        [Display(Name = "ID País")]
+        [Display(Name = "País")]
         [ForeignKey("Country")]
         public int CountryId { get; set; }
 
