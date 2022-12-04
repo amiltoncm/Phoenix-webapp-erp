@@ -12,9 +12,8 @@
     <link rel="stylesheet" href="~/Phoenix.styles.css" asp-append-version="true" />
 </head>
 <body>
+
     <header>
-
-
         <nav class="navbar
                     navbar-expand-sm
                     navbar-toggleable-sm
@@ -25,7 +24,7 @@
                     mb-3
                     top-fixed">
             <div class="container-fluid">
-                <button class="btn btn-secondary" id="sidebarToggle">
+                <button class="btn btn-secondary" id="sidebarToggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
                     <i class="fa fa-bars"></i>
                 </button>
                 <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand" style="margin-left: 10px;">
@@ -49,6 +48,52 @@
         </nav>
     </header>
 
+    <div class="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title d-none d-sm-block" id="offcanvas">Phoenix ERP - Menu</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-0">
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link text-truncate">
+                        <i class="fa fa-dashboard"></i>
+                        <span class="ms-1 d-none d-sm-inline">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-truncate">
+                        <i class="fa fa-address-book"></i>
+                        <span class="ms-1 d-none d-sm-inline">Cadastros</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-truncate">
+                        <i class="fa fa-search"></i>
+                        <span class="ms-1 d-none d-sm-inline">Consultas</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-truncate">
+                        <i class="fa fa-file-lines"></i>
+                        <span class="ms-1 d-none d-sm-inline">Movimentações</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-truncate">
+                        <i class="fa fa-gear"></i>
+                        <span class="ms-1 d-none d-sm-inline">Úteis</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="nav-link text-truncate">
+                        <i class="fa fa-right-from-bracket"></i>
+                        <span class="ms-1 d-none d-sm-inline">Sair do sistema</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
 
     <div class="container">
         <main role="main" class="pb-3">
