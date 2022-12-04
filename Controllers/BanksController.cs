@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Phoenix.Data;
 using Phoenix.Models;
@@ -15,9 +16,18 @@ namespace Phoenix.Controllers
         }
 
         // GET: Banks
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-              return View(await _context.Bank.ToListAsync());
+            var phoenixContext = _context.Bank.Include(b => b.Status).OrderBy(b => b.Name);
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                phoenixContext = _context.Bank
+                                         .Include(b => b.Status)
+                                         .Where(b => b.Name.Contains(searchString))
+                                         .OrderBy(b => b.Name);
+            }
+            return View(await phoenixContext.ToListAsync());
         }
 
         // GET: Banks/Details/5
@@ -29,6 +39,7 @@ namespace Phoenix.Controllers
             }
 
             var bank = await _context.Bank
+                .Include(b => b.Status)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (bank == null)
             {
@@ -41,6 +52,7 @@ namespace Phoenix.Controllers
         // GET: Banks/Create
         public IActionResult Create()
         {
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name");
             return View();
         }
 
@@ -49,14 +61,17 @@ namespace Phoenix.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Code,Name")] Bank bank)
+        public async Task<IActionResult> Create([Bind("Id,Code,Name,Created,Updated,StatusId")] Bank bank)
         {
             if (ModelState.IsValid)
             {
+                bank.Created = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+                bank.Updated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                 _context.Add(bank);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["StatusId"] = new SelectList(_context.Status.OrderBy(s => s.Name), "Id", "Name", bank.StatusId);
             return View(bank);
         }
 
@@ -73,6 +88,7 @@ namespace Phoenix.Controllers
             {
                 return NotFound();
             }
+            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", bank.StatusId);
             return View(bank);
         }
 
@@ -81,7 +97,7 @@ namespace Phoenix.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name")] Bank bank)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Code,Name,Created,Updated,StatusId")] Bank bank)
         {
             if (id != bank.Id)
             {
@@ -108,6 +124,7 @@ namespace Phoenix.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["StatusId"] = new SelectList(_context.Status, "Id", "Name", bank.StatusId);
             return View(bank);
         }
 
@@ -120,6 +137,7 @@ namespace Phoenix.Controllers
             }
 
             var bank = await _context.Bank
+                .Include(b => b.Status)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (bank == null)
             {

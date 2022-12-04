@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Phoenix.Domains;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -19,6 +20,7 @@ namespace Phoenix.Models
         [Required]
         [Column("bnk_code")]
         [Display(Name = "Código")]
+        [DisplayFormat(DataFormatString = "{0:000}")]
         public int Code { get; set; }
 
         [Required]
@@ -28,6 +30,21 @@ namespace Phoenix.Models
         [MaxLength(75, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string ? Name { get; set; }
 
+        [Column("bnk_created")]
+        [Display(Name = "Criado em")]
+        public DateTime Created { get; set; }
+
+        [Column("bnk_updated")]
+        [Display(Name = "Atualizado em")]
+        public DateTime Updated { get; set; }
+
+        [Column("sta_id")]
+        [Display(Name = "ID Status")]
+        [ForeignKey("Status")]
+        public int StatusId { get; set; }
+
+        [Display(Name = "Status")]
+        public virtual Status? Status { get; set; }
     }
 
 }
