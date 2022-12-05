@@ -24,20 +24,16 @@
                     mb-3
                     top-fixed">
             <div class="container-fluid">
-                <button class="btn btn-secondary" id="sidebarToggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
-                    <i class="fa fa-bars"></i>
-                </button>
-                <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand" style="margin-left: 10px;">
+                <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand" style="margin-left: 7px;">
                     <img src="~/images/brand.png" alt="AMX Sistemas">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <button class="btn btn-secondary" id="sidebarToggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+                    <i class="fa fa-bars"></i>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light" style="margin-left:5px;" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Privacy">Privacidade</a>
@@ -48,45 +44,101 @@
         </nav>
     </header>
 
-    <div class="offcanvas offcanvas-start w-25" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas offcanvas-start bg-dark" style="width:17em;" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title d-none d-sm-block" id="offcanvas">Phoenix ERP - Menu</h5>
+            <h5 class="offcanvas-title d-none d-sm-block text-light" id="offcanvas">Phoenix ERP - Menu</h5>
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body px-0">
             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+
                 <li class="nav-item">
-                    <a href="#" class="nav-link text-truncate">
+                    <a href="@Url.Action("Index", "")" class="nav-link text-truncate text-light">
                         <i class="fa fa-dashboard"></i>
                         <span class="ms-1 d-none d-sm-inline">Dashboard</span>
                     </a>
                 </li>
+
                 <li>
-                    <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-truncate">
+                    <a href="#collapseCadastros" 
+                       role="button"
+                       data-bs-toggle="collapse"
+                       data-bs-target="#collapseCadastros"
+                       aria-controls="collapseCadastros"
+                       class="nav-link text-truncate text-light"
+                       aria-expanded="false">
                         <i class="fa fa-address-book"></i>
                         <span class="ms-1 d-none d-sm-inline">Cadastros</span>
                     </a>
+                    <div class="collapse" id="collapseCadastros">
+                        <ul>
+                            <li>
+                                <a href="@Url.Action("Index", "Banks")" class="nav-link text-truncate text-light">
+                                    <i class="fa fa-bank"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Bancos</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Cities")" class="nav-link text-truncate text-light">
+                                    <i class="fa fa-building"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Cidades</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "People")" class="nav-link text-truncate text-light">
+                                    <i class="fa fa-users"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Pessoas</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "States")" class="nav-link text-truncate text-light">
+                                    <i class="fa fa-map"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Estados</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Countries")" class="nav-link text-truncate text-light">
+                                    <i class="fa fa-globe"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Países</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Index", "Users")" class="nav-link text-truncate text-light">
+                                    <i class="fa fa-user-circle"></i>
+                                    <span class="ms-1 d-none d-sm-inline">Usuários</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
+
+
                 <li>
-                    <a href="#" class="nav-link text-truncate">
+                    <a href="#" class="nav-link text-truncate text-light">
                         <i class="fa fa-search"></i>
                         <span class="ms-1 d-none d-sm-inline">Consultas</span>
                     </a>
                 </li>
+
+
                 <li>
-                    <a href="#" class="nav-link text-truncate">
+                    <a href="#" class="nav-link text-truncate text-light">
                         <i class="fa fa-file-lines"></i>
                         <span class="ms-1 d-none d-sm-inline">Movimentações</span>
                     </a>
                 </li>
+
+
                 <li>
-                    <a href="#" class="nav-link text-truncate">
+                    <a href="#" class="nav-link text-truncate text-light">
                         <i class="fa fa-gear"></i>
                         <span class="ms-1 d-none d-sm-inline">Úteis</span>
                     </a>
                 </li>
+
+                <hr />
                 <li>
-                    <a href="#" class="nav-link text-truncate">
+                    <a href="@Url.Action("Index", "")" class="nav-link text-truncate text-light">
                         <i class="fa fa-right-from-bracket"></i>
                         <span class="ms-1 d-none d-sm-inline">Sair do sistema</span>
                     </a>
@@ -112,12 +164,14 @@
             </div>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/font-awesome/js/all.min.js"></script>
     <script src="~/lib/font-awesome/js/fontawesome.min.js"></script>
     <script src="~/js/site.js" asp-append-version="false"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
