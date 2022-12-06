@@ -59,7 +59,7 @@
                     </a>
                 </li>
 
-                <li>
+                <li class="nav-item">
                     <a href="#collapseCadastros" 
                        role="button"
                        data-bs-toggle="collapse"
@@ -70,50 +70,49 @@
                         <i class="fa fa-address-book"></i>
                         <span class="ms-1 d-none d-sm-inline">Cadastros</span>
                     </a>
-                    <div class="collapse" id="collapseCadastros">
-                        <ul>
-                            <li>
-                                <a href="@Url.Action("Index", "Banks")" class="nav-link text-truncate text-light">
-                                    <i class="fa fa-bank"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Bancos</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Cities")" class="nav-link text-truncate text-light">
-                                    <i class="fa fa-building"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Cidades</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "People")" class="nav-link text-truncate text-light">
-                                    <i class="fa fa-users"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Pessoas</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "States")" class="nav-link text-truncate text-light">
-                                    <i class="fa fa-map"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Estados</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Countries")" class="nav-link text-truncate text-light">
-                                    <i class="fa fa-globe"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Países</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Index", "Users")" class="nav-link text-truncate text-light">
-                                    <i class="fa fa-user-circle"></i>
-                                    <span class="ms-1 d-none d-sm-inline">Usuários</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+                    <ul class="navbar-collapse collapse" id="collapseCadastros">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Banks")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-bank"></i>
+                                <span class="ms-1 d-none d-sm-inline">Bancos</span>
+                            </a>
+                        </li class="nav-item">
+                        <li>
+                            <a href="@Url.Action("Index", "Cities")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-building"></i>
+                                <span class="ms-1 d-none d-sm-inline">Cidades</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "People")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-users"></i>
+                                <span class="ms-1 d-none d-sm-inline">Pessoas</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "States")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-map"></i>
+                                <span class="ms-1 d-none d-sm-inline">Estados</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Countries")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-globe"></i>
+                                <span class="ms-1 d-none d-sm-inline">Países</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Users")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-user-circle"></i>
+                                <span class="ms-1 d-none d-sm-inline">Usuários</span>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
 
-                <li>
+                <li class="nav-item">
                     <a href="#" class="nav-link text-truncate text-light">
                         <i class="fa fa-search"></i>
                         <span class="ms-1 d-none d-sm-inline">Consultas</span>
@@ -121,7 +120,7 @@
                 </li>
 
 
-                <li>
+                <li class="nav-item">
                     <a href="#" class="nav-link text-truncate text-light">
                         <i class="fa fa-file-lines"></i>
                         <span class="ms-1 d-none d-sm-inline">Movimentações</span>
@@ -129,15 +128,14 @@
                 </li>
 
 
-                <li>
+                <li class="nav-item">
                     <a href="#" class="nav-link text-truncate text-light">
                         <i class="fa fa-gear"></i>
                         <span class="ms-1 d-none d-sm-inline">Úteis</span>
                     </a>
                 </li>
 
-                <hr />
-                <li>
+                <li class="nav-item">
                     <a href="@Url.Action("Index", "")" class="nav-link text-truncate text-light">
                         <i class="fa fa-right-from-bracket"></i>
                         <span class="ms-1 d-none d-sm-inline">Sair do sistema</span>
@@ -166,8 +164,8 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/popper.js/esm/popper.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/lib/font-awesome/js/all.min.js"></script>
     <script src="~/lib/font-awesome/js/fontawesome.min.js"></script>
     <script src="~/js/site.js" asp-append-version="false"></script>
