@@ -107,7 +107,7 @@ namespace Phoenix.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CityId"] = new SelectList(_context.City, "Id", "Name", person.CityId);
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id", person.PersonTypeId);
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Name", person.PersonTypeId);
             ViewData["PublicPlaceId"] = new SelectList(_context.Set<PublicPlace>(), "Id", "Name", person.PublicPlaceId);
             ViewData["StatusID"] = new SelectList(_context.Status, "Id", "Name", person.StatusID);
             return View(person);
