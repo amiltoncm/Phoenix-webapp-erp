@@ -9,29 +9,29 @@
 <hr />
 
 <div class="row">
-    <div class="container" style="display: flow">
+    <div class="container">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
-            <div class="col-md-12" style="display: flex;">
+            <div class="col-md-12" style="display: inline-flex; justify-content:flex-start">
                 <div class="form-group col-md-6">
                     <label asp-for="Name" class="control-label"></label>
                     <input asp-for="Name" class="form-control" autofocus/>
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-6" style="margin-left:10px;">
+                <div class="form-group col-md-5" style="margin-left:10px;">
                     <label asp-for="Alias" class="control-label"></label>
                     <input asp-for="Alias" class="form-control" />
                     <span asp-validation-for="Alias" class="text-danger"></span>
                 </div>
             </div>
 
-            <div class="col-md-12" style="display: flex;">
-                <div class="form-group col-md-3">
+            <div class="col-md-12" style="display: inline-flex; justify-content:flex-start">
+                <div class="form-group col-md-2">
                     <label asp-for="PersonTypeId" class="control-label"></label>
                     <select asp-for="PersonTypeId" class ="form-control" asp-items="ViewBag.PersonTypeId"></select>
                 </div>
-                <div class="form-group col-md-2" style="margin-left:10px;">
+                <div class="form-group col-md-3" style="margin-left:10px;">
                     <label asp-for="Document" class="control-label"></label>
                     <input asp-for="Document" class="form-control" />
                     <span asp-validation-for="Document" class="text-danger"></span>
@@ -41,20 +41,20 @@
                     <input asp-for="Registration" class="form-control" />
                     <span asp-validation-for="Registration" class="text-danger"></span>
                 </div> 
-                <div class="form-group col-md-2" style="margin-left:10px;">
+                <div class="form-group col-md-3" style="margin-left:10px;">
                     <label asp-for="Phone" class="control-label"></label>
                     <input asp-for="Phone" class="form-control" />
                     <span asp-validation-for="Phone" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-2" style="margin-left:10px;">
+            </div>
+
+            <div class="col-md-12" style="display: inline-flex; justify-content:flex-start">
+                <div class="form-group col-md-2">
                     <label asp-for="Zip" class="control-label"></label>
                     <input asp-for="Zip" class="form-control" />
                     <span asp-validation-for="Zip" class="text-danger"></span>
                 </div>
-            </div>
-
-            <div class="col-md-12" style="display: flex;">
-                <div class="form-group col-md-3">
+                <div class="form-group col-md-3" style="margin-left:10px;">
                     <label asp-for="PublicPlaceId" class="control-label"></label>
                     <select asp-for="PublicPlaceId" class ="form-control" asp-items="ViewBag.PublicPlaceId"></select>
                 </div>
@@ -63,19 +63,19 @@
                     <input asp-for="Address" class="form-control" />
                     <span asp-validation-for="Address" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-1" style="margin-left:10px;">
+                <div class="form-group col-md-2" style="margin-left:10px;">
                     <label asp-for="Number" class="control-label"></label>
                     <input asp-for="Number" class="form-control" />
                     <span asp-validation-for="Number" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4" style="margin-left:10px;">
+            </div>
+
+            <div class="col-md-12" style="display: inline-flex; justify-content:flex-start">
+                <div class="form-group col-md-3">
                     <label asp-for="Complement" class="control-label"></label>
                     <input asp-for="Complement" class="form-control" />
                     <span asp-validation-for="Complement" class="text-danger"></span>
                 </div>
-            </div>
-
-            <div class="col-md-12" style="display: flex;">
                 <div class="form-group col-md-4" >
                     <label asp-for="District" class="control-label"></label>
                     <input asp-for="District" class="form-control" />
@@ -85,26 +85,26 @@
                     <label asp-for="CityId" class="control-label"></label>
                     <select asp-for="CityId" class ="form-control" asp-items="ViewBag.CityId"></select>
                 </div>
-                <div class="form-group col-md-4" style="margin-left:10px;">
+            </div>
+
+            <div class="col-md-12" style="display: inline-flex; justify-content:flex-start">
+                <div class="form-group col-md-3">
                     <label asp-for="Reference" class="control-label"></label>
                     <input asp-for="Reference" class="form-control" />
                     <span asp-validation-for="Reference" class="text-danger"></span>
                 </div>
-            </div>
-
-            <div class="col-md-12" style="display: flex;">
-                <div class="form-group col-md-8">
+                <div class="form-group col-md-6" style="margin-left:10px;">
                     <label asp-for="Email" class="control-label"></label>
                     <input asp-for="Email" class="form-control" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4" style="margin-left:10px;">
+                <div class="form-group col-md-2" style="margin-left:10px;">
                     <label asp-for="StatusID" class="control-label"></label>
                     <select asp-for="StatusID" class ="form-control" asp-items="ViewBag.StatusID"></select>
                 </div>
             </div>
 
-            <div class="col-md-12" style="display: flex; margin-top:10px;">
+            <div class="col-md-12" style="display: inline-flex; justify-content:flex-start; margin-top:10px;">
                 <div class="form-group col-md-2">
                     <input type="checkbox" id="Client" name="Client" value="Model.Client" data="true"/>
                     <label asp-for="Client" class="control-label"></label>
@@ -122,8 +122,7 @@
                     <label asp-for="Associate" class="control-label"></label>
                 </div>
             </div>
-            <br />
-            <div class="form-group">
+            <div class="form-group" style="margin-top:10px;">
                 <a class="btn btn-success" onclick="this.closest('form').submit();return false;" tabindex="0">
                     <i class="fa fa-check"></i>
                     Salvar
