@@ -182,7 +182,9 @@ namespace Phoenix.Controllers
             var person = await _context.Person.FindAsync(id);
             if (person != null)
             {
-                _context.Person.Remove(person);
+                person.Deleted = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+                person.StatusID = 0;
+                _context.Person.Update(person);
             }
             
             await _context.SaveChangesAsync();
