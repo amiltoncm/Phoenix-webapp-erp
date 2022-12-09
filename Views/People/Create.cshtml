@@ -106,20 +106,19 @@
 
             <div class="col-md-12" style="display: inline-flex; justify-content:flex-start; margin-top:10px;">
                 <div class="form-group col-md-2">
-                    <input type="checkbox" id="Client" name="Client" value="true"/>
-                    <input type="hidden" id="Client" name="Client" value="false"/>
+                    @Html.CheckBoxFor(model => model.Client)
                     <label asp-for="Client" class="control-label"></label>
                 </div>
                 <div class="form-group col-md-2">
-                    <input type="checkbox" id="Provider" name="Provider" />
+                    @Html.CheckBoxFor(model => model.Provider)
                     <label asp-for="Provider" class="control-label"></label>
                 </div>
                 <div class="form-group col-md-2">
-                    <input type="checkbox" id="Shipping" name="Shipping" />
+                    @Html.CheckBoxFor(model => model.Shipping)
                     <label asp-for="Shipping" class="control-label"></label>
                 </div>
                 <div class="form-group col-md-2">
-                    <input type="checkbox" id="Associate" name="Associate" />
+                    @Html.CheckBoxFor(model => model.Associate)
                     <label asp-for="Associate" class="control-label"></label>
                 </div>
             </div>

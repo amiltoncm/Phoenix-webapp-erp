@@ -117,25 +117,25 @@ namespace Phoenix.Models
         [Column("peo_client")]
         [Display(Name = "Cliente")]
         [Range(0,1)]
-        public int Client { get; set; }
+        public bool Client { get; set; }
 
         [Required]
         [Column("peo_provider")]
         [Display(Name = "Fornecedor")]
         [Range(0, 1)]
-        public int Provider { get; set; }
+        public bool Provider { get; set; }
 
         [Required]
         [Column("peo_shipping")]
         [Display(Name = "Transportadora")]
         [Range(0, 1)]
-        public int Shipping { get; set; }
+        public bool Shipping { get; set; }
 
         [Required]
         [Column("peo_associate")]
         [Display(Name = "Associado")]
         [Range(0, 1)]
-        public int Associate { get; set; }
+        public bool Associate { get; set; }
 
         [Required]
         [Column("peo_created")]

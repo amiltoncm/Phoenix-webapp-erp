@@ -65,39 +65,6 @@ namespace Phoenix.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Alias,Document,Registration,PublicPlaceId,Address,Number,Complement,District,CityId,Reference,Phone,Zip,PersonTypeId,Email,Client,Provider,Shipping,Associate,Created,Updated,Deleted,StatusID")] Person person)
         {
-            if (person.Client.Equals(true))
-            {
-                person.Client = 1;
-            }
-            else
-            {
-                person.Client = 0;
-            }
-            if (person.Provider.Equals(true))
-            {
-                person.Provider = 1;
-            }
-            else
-            {
-                person.Provider = 0;
-            }
-            if (person.Shipping.Equals(true))
-            {
-                person.Shipping = 1;
-            }
-            else
-            {
-                person.Shipping = 0;
-            }
-            if (person.Associate.Equals(true))
-            {
-                person.Associate = 1;
-            }
-            else
-            {
-                person.Associate = 0;
-            }
-
             if (ModelState.IsValid)
             {
                 person.Created = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
@@ -127,7 +94,7 @@ namespace Phoenix.Controllers
                 return NotFound();
             }
             ViewData["CityId"] = new SelectList(_context.City, "Id", "Name", person.CityId);
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id", person.PersonTypeId);
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Name", person.PersonTypeId);
             ViewData["PublicPlaceId"] = new SelectList(_context.Set<PublicPlace>(), "Id", "Name", person.PublicPlaceId);
             ViewData["StatusID"] = new SelectList(_context.Status, "Id", "Name", person.StatusID);
             return View(person);
@@ -149,6 +116,16 @@ namespace Phoenix.Controllers
             {
                 try
                 {
+                    if (person.StatusID == 0)
+                    {
+                        person.Deleted = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
+                    }
+                    else
+                    {
+                        person.Deleted = null;
+                    }
+                    person.Created = DateTime.SpecifyKind(person.Created, DateTimeKind.Utc);
+                    person.Updated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                     _context.Update(person);
                     await _context.SaveChangesAsync();
                 }
@@ -166,7 +143,7 @@ namespace Phoenix.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CityId"] = new SelectList(_context.City, "Id", "Name", person.CityId);
-            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Id", person.PersonTypeId);
+            ViewData["PersonTypeId"] = new SelectList(_context.Set<PersonType>(), "Id", "Name", person.PersonTypeId);
             ViewData["PublicPlaceId"] = new SelectList(_context.Set<PublicPlace>(), "Id", "Name", person.PublicPlaceId);
             ViewData["StatusID"] = new SelectList(_context.Status, "Id", "Name", person.StatusID);
             return View(person);
@@ -190,7 +167,6 @@ namespace Phoenix.Controllers
             {
                 return NotFound();
             }
-
             return View(person);
         }
 
