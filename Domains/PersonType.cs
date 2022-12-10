@@ -11,7 +11,7 @@ namespace Phoenix.Domains
         [Key]
         [Column("pet_id")]
         [Display(Name = "ID")]
-        [MinLength(1, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
+        [MinLength(1, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(1, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public String? Id { get; set; }
@@ -19,7 +19,7 @@ namespace Phoenix.Domains
         [Required]
         [Column("pet_name")]
         [Display(Name = "Nome")]
-        [MinLength(3, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
+        [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(20, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public String? Name { get; set; }
 

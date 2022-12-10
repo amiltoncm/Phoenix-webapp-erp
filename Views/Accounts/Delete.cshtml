@@ -1,14 +1,13 @@
-﻿@model Phoenix.Models.Country
+﻿@model Phoenix.Models.Account
 
 @{
-    ViewData["Title"] = "Países";
+    ViewData["Title"] = "Contas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>>@ViewData["Title"] - Excluir país</h4>
+<h4>@ViewData["Title"] - Excluir conta</h4>
 
 <h4 style="color: red">Deseja realmente excluir: @Html.DisplayFor(model => model.Name)?</h4>
-<div>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -16,18 +15,6 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Iso2)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Iso2)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Iso3)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Iso3)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Created)
@@ -40,6 +27,12 @@
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Updated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Bank)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Bank.Name)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Status)
@@ -55,7 +48,7 @@
             <i class="fa fa-trash"></i>
             Excluir
         </a>
-        <a class="btn btn-secondary" href="@Url.Action("Index", "Countries")">
+        <a class="btn btn-secondary" href="@Url.Action("Index", "Accounts")">
             <i class="fa fa-undo"></i>
             Cancelar
         </a>

@@ -24,6 +24,8 @@ namespace Phoenix.Data
 
         public DbSet<Phoenix.Models.Bank> Bank { get; set; }
 
+        public DbSet<Phoenix.Models.Account> Account { get; set; }
+
     }
 
 }

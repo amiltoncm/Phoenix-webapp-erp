@@ -24,12 +24,12 @@
                     mb-3
                     top-fixed">
             <div class="container-fluid">
-                <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand" style="margin-left: 7px;">
-                    <img src="~/images/brand.png" alt="AMX Sistemas">
-                </a>
                 <button class="btn btn-secondary" id="sidebarToggle" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
                     <i class="fa fa-bars"></i>
                 </button>
+                <a href="https://amxsistemas.com.br" target="_blank" title="AMX Sistemas" class="navbar-brand" style="margin-left: 7px;">
+                    <img src="~/images/brand.png" alt="AMX Sistemas">
+                </a>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
@@ -76,6 +76,12 @@
                             <a href="@Url.Action("Index", "Banks")" class="nav-link text-truncate text-light">
                                 <i class="fa fa-bank"></i>
                                 <span class="ms-1 d-none d-sm-inline">Bancos</span>
+                            </a>
+                        </li class="nav-item">
+                        <li class="nav-item">
+                            <a href="@Url.Action("Index", "Accounts")" class="nav-link text-truncate text-light">
+                                <i class="fa fa-list-alt"></i>
+                                <span class="ms-1 d-none d-sm-inline">Contas</span>
                             </a>
                         </li class="nav-item">
                         <li>

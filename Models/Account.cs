@@ -5,36 +5,33 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Phoenix.Models
 {
-
-    [Table("banks")]
-    [Index(nameof(Code), Name = "idx_bnk_code", IsUnique = true)]
-    [Index(nameof(Name), Name = "idx_bnk_name", IsUnique = true)]
-    public class Bank
+    [Table("accounts")]
+    [Index(nameof(Name), Name = "idx_acc_name", IsUnique = true)]
+    public class Account
     {
         [Key]
-        [Column("bnk_id")]
+        [Column("acc_id")]
         [Display(Name = "ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required]
-        [Column("bnk_code")]
-        [Display(Name = "Código")]
-        [DisplayFormat(DataFormatString = "{0:000}")]
-        public int Code { get; set; }
-
-        [Required]
-        [Column("bnk_name")]
+        [Column("acc_name")]
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(75, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
-        [Column("bnk_created")]
+        [Column("bnk_id")]
+        [Display(Name = "Banco")]
+        [ForeignKey("banks")]
+        public int BankId { get; set; }
+
+        [Column("acc_created")]
         [Display(Name = "Criado em")]
         public DateTime Created { get; set; }
 
-        [Column("bnk_updated")]
+        [Column("acc_updated")]
         [Display(Name = "Atualizado em")]
         public DateTime Updated { get; set; }
 
@@ -43,8 +40,12 @@ namespace Phoenix.Models
         [ForeignKey("Status")]
         public int StatusId { get; set; }
 
+        [Display(Name = "Banco")]
+        public virtual Bank ? Bank { get; set; }
+
         [Display(Name = "Status")]
-        public virtual Status? Status { get; set; }
+        public virtual Status ? Status { get; set; }
+
     }
 
 }

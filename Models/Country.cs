@@ -21,21 +21,21 @@ namespace Phoenix.Models
         [Required]
         [Column("cnt_name")]
         [Display(Name = "Nome")]
-        [MinLength(3, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
+        [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(50, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Name { get; set; }
 
         [Required]
         [Column("cnt_iso2")]
         [Display(Name = "Iso 2")]
-        [MinLength(2, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
+        [MinLength(2, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(2, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Iso2 { get; set; }
 
         [Required]
         [Column("cnt_iso3")]
         [Display(Name = "Iso 3")]
-        [MinLength(3, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
+        [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(3, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Iso3 { get; set; }
 
