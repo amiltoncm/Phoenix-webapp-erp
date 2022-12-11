@@ -108,6 +108,8 @@ namespace Phoenix.Controllers
             {
                 try
                 {
+                    bank.Created = DateTime.SpecifyKind(bank.Created, DateTimeKind.Utc);
+                    bank.Updated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
                     _context.Update(bank);
                     await _context.SaveChangesAsync();
                 }

@@ -1,0 +1,44 @@
+﻿@model Phoenix.Models.ChartAccounts
+
+@{
+    ViewData["Title"] = "Plano de Contas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewData["Title"] - Novo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" autofocus/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MovimentTypeId" class="control-label"></label>
+                <select asp-for="MovimentTypeId" class ="form-control" asp-items="ViewBag.MovimentTypeId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <select asp-for="StatusId" class ="form-control" asp-items="ViewBag.StatusId"></select>
+            </div>
+            <br />
+            <div class="form-group">
+                <a class="btn btn-success" onclick="this.closest('form').submit();return false;"  tabindex="0">
+                    <i class="fa fa-check"></i>
+                    Salvar
+                </a>
+                <a class="btn btn-secondary" href="@Url.Action("Index", "ChartAccounts")"  tabindex="1">
+                    <i class="fa fa-undo"></i>
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
