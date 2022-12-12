@@ -1,0 +1,75 @@
+﻿@model Phoenix.Models.PaymentTerm
+
+@{
+    ViewData["Title"] = "Prazos de Pagamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewData["Title"] - Excluir Prazo de Pagamento</h4>
+
+<h4 style="color: red">Deseja realmente Excluir: @Html.DisplayFor(model => model.Name)?</h4>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Installments)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Installments)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Period)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Period)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fees)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fees)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Created)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Updated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Updated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PaymentIndication)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PaymentIndication.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Status.Name)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <a class="btn btn-danger" onclick="this.closest('form').submit();return false;">
+            <i class="fa fa-trash"></i>
+            Excluir
+        </a>
+        <a class="btn btn-secondary" href="@Url.Action("Index", "PaymentTerms")">
+            <i class="fa fa-undo"></i>
+            Cancelar
+        </a>
+    </form>
+</div>

@@ -1,0 +1,59 @@
+﻿@model Phoenix.Models.PaymentTerm
+
+@{
+    ViewData["Title"] = "Prazos de Pagamento";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>@ViewData["Title"] - Nova</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" autofocus/>
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Installments" class="control-label"></label>
+                <input asp-for="Installments" class="form-control" />
+                <span asp-validation-for="Installments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Period" class="control-label"></label>
+                <input asp-for="Period" class="form-control" />
+                <span asp-validation-for="Period" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fees" class="control-label"></label>
+                <input asp-for="Fees" class="form-control" />
+                <span asp-validation-for="Fees" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PaymentIndicationId" class="control-label"></label>
+                <select asp-for="PaymentIndicationId" class ="form-control" asp-items="ViewBag.PaymentIndicationId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatusId" class="control-label"></label>
+                <select asp-for="StatusId" class ="form-control" asp-items="ViewBag.StatusId"></select>
+            </div>
+            <div class="form-group" style="margin-top:10px;">
+                <a class="btn btn-success" onclick="this.closest('form').submit();return false;" tabindex="0">
+                    <i class="fa fa-check"></i>
+                    Salvar
+                </a>
+                <a class="btn btn-secondary" href="@Url.Action("Index", "PaymentTerms")"  tabindex="1">
+                    <i class="fa fa-undo"></i>
+                    Cancelar
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

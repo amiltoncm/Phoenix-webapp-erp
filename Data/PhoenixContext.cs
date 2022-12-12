@@ -30,6 +30,8 @@ namespace Phoenix.Data
 
         public DbSet<Phoenix.Models.ChartAccounts> ChartAccounts { get; set; }
 
+        public DbSet<Phoenix.Models.PaymentTerm> PaymentTerm { get; set; }
+
     }
 
 }
