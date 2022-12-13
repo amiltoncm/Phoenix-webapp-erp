@@ -45,10 +45,13 @@ namespace Phoenix.Models
 
         [Column("pty_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
 
         [Column("pty_updated")]
         [Display(Name = "Atualizado em")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         [Required]

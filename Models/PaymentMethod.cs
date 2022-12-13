@@ -46,11 +46,13 @@ namespace Phoenix.Models
         [Required]
         [Column("pay_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
 
         [Required]
         [Column("pay_updated")]
         [Display(Name = "Alterado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         [Display(Name = "Conta")]

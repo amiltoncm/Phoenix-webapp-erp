@@ -40,10 +40,12 @@ namespace Phoenix.Models
 
         [Column("cti_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
 
         [Column("cti_updated")]
         [Display(Name = "Atualizado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         [Display(Name = "Estado")]

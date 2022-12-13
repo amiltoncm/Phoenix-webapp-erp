@@ -48,11 +48,13 @@ namespace Phoenix.Models
         [Required]
         [Column("cnt_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
         
         [Required]
         [Column("cnt_updated")]
         [Display(Name = "Alterado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         public virtual Status? Status { get; set; }

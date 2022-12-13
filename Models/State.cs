@@ -49,11 +49,13 @@ namespace Phoenix.Models
         [Required]
         [Column("ste_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
 
         [Required]
         [Column("ste_updated")]
         [Display(Name = "Atualizado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         [Display(Name = "Status")]

@@ -32,10 +32,12 @@ namespace Phoenix.Models
 
         [Column("cac_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
 
         [Column("cac_updated")]
         [Display(Name = "Atualizado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         [Column("sta_id")]

@@ -52,16 +52,19 @@ namespace Phoenix.Models
         [Required]
         [Column("usr_created")]
         [Display(Name = "Criado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
 
         [Required]
         [Column("usr_updated")]
         [Display(Name = "Alterado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Updated { get; set; }
 
         [AllowNull]
         [Column("usr_deleted")]
         [Display(Name = "Inativado em")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime ? Deleted { get; set; }
 
         [Display(Name = "Status")]
