@@ -18,9 +18,6 @@ namespace Phoenix.Models
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int PaymentMethodId { get; set; }
 
-        [Display(Name = "Prazo de pagamento")]
-        public PaymentTerm ? PaymentTerm { get; set; }
-
         [Display(Name = "Método de pagamento")]
         public PaymentMethod ? PaymentMethod { get; set; }
 
