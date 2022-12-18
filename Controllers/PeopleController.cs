@@ -186,14 +186,14 @@ namespace Phoenix.Controllers
                 person.StatusID = 0;
                 _context.Person.Update(person);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PersonExists(int id)
         {
-          return _context.Person.Any(e => e.Id == id);
+            return _context.Person.Any(e => e.Id == id);
         }
     }
 }

@@ -1,11 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Phoenix.Models;
 
 namespace Phoenix.Data
 {
     public class PhoenixContext : DbContext
     {
-        public PhoenixContext (DbContextOptions<PhoenixContext> options)
+        public PhoenixContext(DbContextOptions<PhoenixContext> options)
             : base(options)
         {
         }

@@ -59,7 +59,7 @@ namespace Phoenix.Models
         [AllowNull]
         [Column("peo_number")]
         [Display(Name = "Número")]
-        public int ? Number { get; set; }
+        public int? Number { get; set; }
 
         [Column("peo_complement")]
         [Display(Name = "Complemento")]
@@ -105,7 +105,7 @@ namespace Phoenix.Models
         [MinLength(1, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(1, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         [ForeignKey("PersonType")]
-        public string ? PersonTypeId { get; set; }
+        public string? PersonTypeId { get; set; }
 
         [Column("peo_email")]
         [Display(Name = "e-mail")]
@@ -116,7 +116,7 @@ namespace Phoenix.Models
         [Required]
         [Column("peo_client")]
         [Display(Name = "Cliente")]
-        [Range(0,1)]
+        [Range(0, 1)]
         public bool Client { get; set; }
 
         [Required]
@@ -153,7 +153,7 @@ namespace Phoenix.Models
         [Column("peo_deleted")]
         [Display(Name = "Inativado em")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
-        public DateTime ? Deleted { get; set; }
+        public DateTime? Deleted { get; set; }
 
         [Required]
         [Column("peo_status")]
@@ -162,16 +162,16 @@ namespace Phoenix.Models
         public int StatusID { get; set; }
 
         [Display(Name = "Tipo de Logradouro")]
-        public virtual PublicPlace ? PublicPlace { get; set; }
+        public virtual PublicPlace? PublicPlace { get; set; }
 
         [Display(Name = "Cidade")]
-        public virtual City ? City { get; set; }
+        public virtual City? City { get; set; }
 
         [Display(Name = "Tipo de Pessoa")]
-        public virtual PersonType ? PersonType { get; set; }
+        public virtual PersonType? PersonType { get; set; }
 
         [Display(Name = "Status")]
-        public virtual Status ? Status { get; set; }
+        public virtual Status? Status { get; set; }
 
     }
 

@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace Phoenix.Domains
 {
@@ -16,14 +15,14 @@ namespace Phoenix.Domains
         [MinLength(1, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
         [MaxLength(1, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public string ? Id { get; set; }
+        public string? Id { get; set; }
 
         [Required]
         [Column("mvt_name")]
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
         [MaxLength(10, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
     }
 }

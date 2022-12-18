@@ -161,14 +161,14 @@ namespace Phoenix.Controllers
             {
                 _context.Account.Remove(account);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool AccountExists(int id)
         {
-          return _context.Account.Any(e => e.Id == id);
+            return _context.Account.Any(e => e.Id == id);
         }
     }
 }

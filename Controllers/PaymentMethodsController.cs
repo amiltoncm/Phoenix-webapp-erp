@@ -168,14 +168,14 @@ namespace Phoenix.Controllers
             {
                 _context.PaymentMethod.Remove(paymentMethod);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PaymentMethodExists(int id)
         {
-          return _context.PaymentMethod.Any(e => e.Id == id);
+            return _context.PaymentMethod.Any(e => e.Id == id);
         }
     }
 }

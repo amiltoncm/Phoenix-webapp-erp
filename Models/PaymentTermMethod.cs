@@ -19,7 +19,7 @@ namespace Phoenix.Models
         public int PaymentMethodId { get; set; }
 
         [Display(Name = "Método de pagamento")]
-        public PaymentMethod ? PaymentMethod { get; set; }
+        public PaymentMethod? PaymentMethod { get; set; }
 
     }
 

@@ -163,14 +163,14 @@ namespace Phoenix.Controllers
             {
                 _context.Bank.Remove(bank);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool BankExists(int id)
         {
-          return _context.Bank.Any(e => e.Id == id);
+            return _context.Bank.Any(e => e.Id == id);
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Phoenix.Domains;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Phoenix.Domains;
 using System.Diagnostics.CodeAnalysis;
 
 namespace Phoenix.Models
@@ -65,7 +65,7 @@ namespace Phoenix.Models
         [Column("usr_deleted")]
         [Display(Name = "Inativado em")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
-        public DateTime ? Deleted { get; set; }
+        public DateTime? Deleted { get; set; }
 
         [Display(Name = "Status")]
         public virtual Status? Status { get; set; }

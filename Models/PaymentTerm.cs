@@ -7,7 +7,8 @@ namespace Phoenix.Models
 {
     [Table("payment_terms")]
     [Index(nameof(Name), Name = "idx_pyt_name", IsUnique = true)]
-    public class PaymentTerm    {
+    public class PaymentTerm
+    {
 
         [Key]
         [Column("pyt_id")]
@@ -20,7 +21,7 @@ namespace Phoenix.Models
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(50, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
         [Required]
         [Column("pyt_installments")]
@@ -64,7 +65,7 @@ namespace Phoenix.Models
         public virtual PaymentIndication? PaymentIndication { get; set; }
 
         [Display(Name = "Status")]
-        public virtual Status ? Status { get; set; }
+        public virtual Status? Status { get; set; }
 
     }
 

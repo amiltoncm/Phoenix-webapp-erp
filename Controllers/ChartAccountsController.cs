@@ -162,14 +162,14 @@ namespace Phoenix.Controllers
             {
                 _context.ChartAccounts.Remove(chartAccounts);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool ChartAccountsExists(int id)
         {
-          return _context.ChartAccounts.Any(e => e.Id == id);
+            return _context.ChartAccounts.Any(e => e.Id == id);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace Phoenix.Domains
         [Display(Name = "Nome")]
         [MinLength(5, ErrorMessage = "É necessaário pelo menos {1} caracteres!")]
         [MaxLength(20, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
     }
 

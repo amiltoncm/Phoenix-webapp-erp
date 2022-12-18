@@ -110,7 +110,7 @@ namespace Phoenix.Controllers
             {
                 try
                 {
-                    country.Iso2 = country.Iso2.ToUpper(); 
+                    country.Iso2 = country.Iso2.ToUpper();
                     country.Iso3 = country.Iso3.ToUpper();
                     country.Created = DateTime.SpecifyKind(country.Created, DateTimeKind.Utc);
                     country.Updated = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
@@ -167,14 +167,14 @@ namespace Phoenix.Controllers
             {
                 _context.Country.Remove(country);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CountryExists(int id)
         {
-          return _context.Country.Any(e => e.Id == id);
+            return _context.Country.Any(e => e.Id == id);
         }
     }
 }

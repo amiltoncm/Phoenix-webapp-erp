@@ -139,7 +139,8 @@ namespace Phoenix.Controllers
                     if (user.StatusId == 0)
                     {
                         user.Deleted = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
-                    } else
+                    }
+                    else
                     {
                         user.Deleted = null;
                     }
@@ -235,17 +236,17 @@ namespace Phoenix.Controllers
             {
                 // _context.User.Remove(user);
                 user.Deleted = DateTime.SpecifyKind(DateTime.Now, DateTimeKind.Utc);
-                user.StatusId = 0; 
+                user.StatusId = 0;
                 _context.Update(user);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool UserExists(int id)
         {
-          return _context.User.Any(e => e.Id == id);
+            return _context.User.Any(e => e.Id == id);
         }
     }
 }

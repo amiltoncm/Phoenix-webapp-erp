@@ -163,14 +163,14 @@ namespace Phoenix.Controllers
             {
                 _context.PaymentTerm.Remove(paymentTerm);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool PaymentTermExists(int id)
         {
-          return _context.PaymentTerm.Any(e => e.Id == id);
+            return _context.PaymentTerm.Any(e => e.Id == id);
         }
     }
 }

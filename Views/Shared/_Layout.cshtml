@@ -40,6 +40,9 @@
                         </li>
                     </ul>
                 </div>
+                <button class="btn btn-secondary" style="margin-right: 10px;" id="sidebarUser" data-bs-toggle="offcanvas" data-bs-target="#offuser" role="button">
+                    <i class="fa fa-user"></i>
+                </button>
             </div>
         </nav>
     </header>
@@ -163,6 +166,35 @@
                     <a href="@Url.Action("Index", "")" class="nav-link text-truncate text-light">
                         <i class="fa fa-right-from-bracket"></i>
                         <span class="ms-1 d-none d-sm-inline">Sair do sistema</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="offcanvas offcanvas-end bg-dark" style="width:17em;" tabindex="-1" id="offuser" data-bs-keyboard="false" data-bs-backdrop="false">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title d-none d-sm-block text-light" id="offuser">Usuário</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body px-0">
+            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu-user">
+                <li class="nav-item">
+
+@*                    <a class="btn btn-outline-dark" asp-action="PasswordChange" asp-route-id=@Model.Id>
+*@
+                    <a class="nav-link text-truncate text-light" asp-action="PasswordChange" >
+                        <i class="fa fa-exclamation-triangle" style="padding-right: 5px;"></i>
+                        Avisos
+                    </a>
+                    <a class="nav-link text-truncate text-light" asp-action="PasswordChange" >
+                        <i class="fa fa-comments" style="padding-right: 5px;"></i>
+                        Mensagens
+                    </a>
+
+                    <a class="nav-link text-truncate text-light" asp-action="PasswordChange" >
+                        <i class="fa fa-key" style="padding-right: 5px;"></i>
+                        Senha (alterar)
                     </a>
                 </li>
             </ul>

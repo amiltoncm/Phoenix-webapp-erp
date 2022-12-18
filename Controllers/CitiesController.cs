@@ -170,14 +170,14 @@ namespace Phoenix.Controllers
             {
                 _context.City.Remove(city);
             }
-            
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool CityExists(int id)
         {
-          return _context.City.Any(e => e.Id == id);
+            return _context.City.Any(e => e.Id == id);
         }
     }
 }

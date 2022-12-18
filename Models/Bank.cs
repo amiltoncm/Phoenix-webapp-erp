@@ -28,7 +28,7 @@ namespace Phoenix.Models
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(75, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("bnk_created")]
         [Display(Name = "Criado em")]

@@ -50,7 +50,7 @@ namespace Phoenix.Models
         [Display(Name = "Criado em")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime Created { get; set; }
-        
+
         [Required]
         [Column("cnt_updated")]
         [Display(Name = "Alterado em")]

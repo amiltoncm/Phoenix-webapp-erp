@@ -20,7 +20,7 @@ namespace Phoenix.Models
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(30, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
         [Required]
         [Column("pty_id")]
@@ -31,11 +31,11 @@ namespace Phoenix.Models
         [Column("acc_id")]
         [Display(Name = "Conta")]
         [ForeignKey("Account")]
-        public int ? AccountId { get; set; }
+        public int? AccountId { get; set; }
 
         [Column("pay_days")]
         [Display(Name = "Dias")]
-        public int ? Days { get; set; }
+        public int? Days { get; set; }
 
         [Required]
         [Column("sta_id")]
@@ -56,13 +56,13 @@ namespace Phoenix.Models
         public DateTime Updated { get; set; }
 
         [Display(Name = "Conta")]
-        public Account ? Account { get; set; }
+        public Account? Account { get; set; }
 
         [Display(Name = "Tipo de Pagamento")]
-        public PaymentType ? PaymentType { get; set; }
+        public PaymentType? PaymentType { get; set; }
 
         [Display(Name = "Status")]
-        public virtual Status ? Status { get; set; }
+        public virtual Status? Status { get; set; }
 
     }
 

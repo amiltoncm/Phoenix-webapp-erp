@@ -17,8 +17,8 @@ namespace Phoenix.Models
         [Required]
         [Column("pro_name")]
         [Display(Name = "Nome")]
-        [MinLength(3, ErrorMessage ="É necessário pelo menos {1} caracteres!")]
-        [MaxLength(20, ErrorMessage ="O campo nome suporta apenas {1} caracteres!")]
+        [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
+        [MaxLength(20, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Name { get; set; }
 
     }

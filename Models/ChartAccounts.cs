@@ -2,7 +2,6 @@
 using Phoenix.Domains;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Xml.Linq;
 
 namespace Phoenix.Models
 {
@@ -21,14 +20,14 @@ namespace Phoenix.Models
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(50, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string ? Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("mvt_id")]
         [Display(Name = "Tipo de Movimento")]
         [MinLength(1, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(1, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         [ForeignKey("MovimentType")]
-        public string ? MovimentTypeId { get; set; }
+        public string? MovimentTypeId { get; set; }
 
         [Column("cac_created")]
         [Display(Name = "Criado em")]
@@ -46,10 +45,10 @@ namespace Phoenix.Models
         public int StatusId { get; set; }
 
         [Display(Name = "Tipo de Movimento")]
-        public virtual MovimentType ? MovimentType { get; set; }
+        public virtual MovimentType? MovimentType { get; set; }
 
         [Display(Name = "Status")]
-        public virtual Status ? Status { get; set; }
+        public virtual Status? Status { get; set; }
 
     }
 
