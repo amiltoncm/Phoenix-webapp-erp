@@ -17,14 +17,14 @@ namespace Phoenix.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Nome é obrigatório!")]
         [Column("peo_name")]
         [Display(Name = "Nome")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(60, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Fantasia é obrigatório!")]
         [Column("peo_alias")]
         [Display(Name = "Fantasia")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
@@ -36,14 +36,14 @@ namespace Phoenix.Models
         [DisplayFormat(DataFormatString = "00.000.000/0000-00")]
         [MinLength(14, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(18, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string? Document { get; set; }
+        public string ? Document { get; set; }
 
         [Column("peo_resgistration")]
         [Display(Name = "Registro")]
         [DisplayFormat(DataFormatString = "000.000.000")]
         [MinLength(6, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(15, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string? Registration { get; set; }
+        public string ? Registration { get; set; }
 
         [Column("pup_id")]
         [Display(Name = "Tipo de Logradouro")]
@@ -54,26 +54,26 @@ namespace Phoenix.Models
         [Display(Name = "Endereço")]
         [MinLength(3, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(60, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string? Address { get; set; }
+        public string ? Address { get; set; }
 
         [AllowNull]
         [Column("peo_number")]
         [Display(Name = "Número")]
-        public int? Number { get; set; }
+        public int ? Number { get; set; }
 
         [Column("peo_complement")]
         [Display(Name = "Complemento")]
         [MinLength(5, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(30, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string? Complement { get; set; }
+        public string ? Complement { get; set; }
 
         [Column("peo_district")]
         [Display(Name = "Bairro")]
         [MinLength(2, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
         [MaxLength(30, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
-        public string? District { get; set; }
+        public string ? District { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Cidade é obrigatório!")]
         [Column("cti_id")]
         [Display(Name = "Cidade")]
         [ForeignKey("City")]
@@ -85,7 +85,7 @@ namespace Phoenix.Models
         [MaxLength(50, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Reference { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Telefone é obrigatório!")]
         [Column("peo_phone")]
         [Display(Name = "Telefone")]
         [MinLength(8, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
@@ -99,7 +99,7 @@ namespace Phoenix.Models
         [MaxLength(10, ErrorMessage = "O campo nome suporta apenas {1} caracteres!")]
         public string? Zip { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Tipo de Pessoa é obrigatório!")]
         [Column("pet_id")]
         [Display(Name = "Tipo de Pessoa")]
         [MinLength(1, ErrorMessage = "É necessário pelo menos {1} caracteres!")]
@@ -116,25 +116,21 @@ namespace Phoenix.Models
         [Required]
         [Column("peo_client")]
         [Display(Name = "Cliente")]
-        [Range(0, 1)]
         public bool Client { get; set; }
 
         [Required]
         [Column("peo_provider")]
         [Display(Name = "Fornecedor")]
-        [Range(0, 1)]
         public bool Provider { get; set; }
 
         [Required]
         [Column("peo_shipping")]
         [Display(Name = "Transportadora")]
-        [Range(0, 1)]
         public bool Shipping { get; set; }
 
         [Required]
         [Column("peo_associate")]
         [Display(Name = "Associado")]
-        [Range(0, 1)]
         public bool Associate { get; set; }
 
         [Required]
@@ -155,7 +151,7 @@ namespace Phoenix.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy hh:mm}")]
         public DateTime? Deleted { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "O campo Status é obrigatório!")]
         [Column("peo_status")]
         [Display(Name = "Status")]
         [ForeignKey("Status")]

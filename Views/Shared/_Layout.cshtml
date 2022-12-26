@@ -40,6 +40,10 @@
                         </li>
                     </ul>
                 </div>
+                <div>
+                    <i class="fa fa-comments" style="color:red; margin-right:10px;"></i>
+                    <i class="fa fa-exclamation-triangle" style="color:yellow; margin-right:15px;"></i>
+                </div>
                 <button class="btn btn-secondary" style="margin-right: 10px;" id="sidebarUser" data-bs-toggle="offcanvas" data-bs-target="#offuser" role="button">
                     <i class="fa fa-user"></i>
                 </button>
@@ -186,10 +190,12 @@
                     <a class="nav-link text-truncate text-light" asp-action="PasswordChange" >
                         <i class="fa fa-exclamation-triangle" style="padding-right: 5px;"></i>
                         Avisos
+                        <span class="badge bg-warning" style="color: black;">2</span>
                     </a>
                     <a class="nav-link text-truncate text-light" asp-action="PasswordChange" >
                         <i class="fa fa-comments" style="padding-right: 5px;"></i>
                         Mensagens
+                        <span class="badge bg-danger">3</span>
                     </a>
 
                     <a class="nav-link text-truncate text-light" asp-action="PasswordChange" >
@@ -220,11 +226,11 @@
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/popper.js/esm/popper.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/lib/font-awesome/js/all.min.js"></script>
     <script src="~/lib/font-awesome/js/fontawesome.min.js"></script>
     <script src="~/js/site.js" asp-append-version="false"></script>
+    <script src="~/js/funcoes.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

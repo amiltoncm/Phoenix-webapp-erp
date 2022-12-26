@@ -17,3 +17,7 @@ body {
     padding-top: 90px;
     margin-bottom: 60px;
 }
+
+.table tbody tr.highlight td {
+    background-color: #B0C4DE;
+}
